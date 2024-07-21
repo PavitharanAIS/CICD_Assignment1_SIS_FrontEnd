@@ -34,6 +34,14 @@ function Form({ route, method }) {
         }
     };
 
+    function Decision() {
+        if (document.querySelector('#decision').href === "/register") {
+            document.querySelector('#decision').href = "/login"
+        } else if (document.querySelector('#decision').href === "/login") {
+            document.querySelector('#decision').href = "/register"
+        }
+    }
+
     return (
         <form onSubmit={handleSubmit} className="form-container">
             <h1>{name}</h1>
@@ -56,7 +64,7 @@ function Form({ route, method }) {
                 {name}
             </button>
             <p>or</p>
-            <p className={"text-center"}><a href="/register" id="decision">{alternate}</a></p>
+            <p className={"text-center"}><a onClick={Decision} href="/register" id="decision">{alternate}</a></p>
         </form>
 
     );
